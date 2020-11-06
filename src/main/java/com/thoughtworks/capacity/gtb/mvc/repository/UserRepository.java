@@ -11,7 +11,11 @@ import java.util.Optional;
 @Repository
 public class UserRepository {
 
-    static List<UserDto> userDtoList = new ArrayList<UserDto>();
+    static List<UserDto> userDtoList = new ArrayList<UserDto>() {
+        {
+            add(new UserDto(1, "username", "password", "email@email.email"));
+        }
+    };
     static Integer nextUserId = 1;
 
     public void userRegister(UserDto userDto) {
