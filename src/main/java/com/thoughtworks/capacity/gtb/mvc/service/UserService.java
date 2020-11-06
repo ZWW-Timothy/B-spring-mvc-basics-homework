@@ -1,17 +1,12 @@
 package com.thoughtworks.capacity.gtb.mvc.service;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.thoughtworks.capacity.gtb.mvc.dto.UserDto;
 import com.thoughtworks.capacity.gtb.mvc.exception.UserLoginFailedException;
 import com.thoughtworks.capacity.gtb.mvc.exception.UserRegisterExistedException;
 import com.thoughtworks.capacity.gtb.mvc.repository.UserRepository;
 
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import java.util.Optional;
 
 @Service

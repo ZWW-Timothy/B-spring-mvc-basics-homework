@@ -1,6 +1,5 @@
 package com.thoughtworks.capacity.gtb.mvc.api;
 
-
 import com.thoughtworks.capacity.gtb.mvc.dto.ErrorResponse;
 import com.thoughtworks.capacity.gtb.mvc.exception.UserLoginFailedException;
 import com.thoughtworks.capacity.gtb.mvc.exception.UserRegisterExistedException;
@@ -27,8 +26,9 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<ErrorResponse> exceptionHandler(ConstraintViolationException exception) {
-        String message = exception.getMessage().split("password:", 2)[1];
-        ErrorResponse error = new ErrorResponse(codeBadRequest, message);
+        String message = exception.getMessage();
+        String messageContent = message.split(": ", 2)[1];
+        ErrorResponse error = new ErrorResponse(codeBadRequest, messageContent);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
